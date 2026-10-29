@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Kamani Devi | Portfolio. Single file (HTML + CSS + jQuery inside). Paste as index.html -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -31,7 +30,7 @@ button{font-family:inherit}
 ::selection{background:var(--a);color:#fff}
 ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-thumb{background:#2a2a3c;border-radius:8px}
 
-/* SVG icons (inline, no external font needed) */
+/* icons */
 .ic{width:1.1em;height:1.1em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;vertical-align:-.15em}
 
 #bg{position:fixed;inset:0;z-index:-2}
@@ -71,17 +70,16 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
 .btn-nav{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;border-radius:30px;background:var(--grad);color:#050507!important;font-weight:600}
 .burger{display:none;background:none;border:0;cursor:pointer;width:34px;height:24px;position:relative;z-index:2}
-.burger span{position:absolute;right:0;height:2px;border-radius:2px;background:#fff;transition:.45s cubic-bezier(.7,0,.2,1)}
+.burger span{position:absolute;right:0;height:2px;border-radius:2px;background:#fff}
 .burger span:nth-child(1){top:2px;width:100%}
 .burger span:nth-child(2){top:11px;width:70%}
 .burger span:nth-child(3){top:20px;width:100%}
-.burger:hover span:nth-child(2){width:100%}
 .burger.open span:nth-child(1){top:11px;transform:rotate(45deg)}
-.burger.open span:nth-child(2){opacity:0;transform:translateX(20px)}
+.burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){top:11px;transform:rotate(-45deg)}
 body.menu-open .nav{background:transparent;backdrop-filter:none;border-color:transparent}
 
-/* MOBILE / TABLET MENU (circular reveal + staggered links) */
+/* MOBILE MENU */
 .m-menu{position:fixed;inset:0;z-index:49;display:none;flex-direction:column;justify-content:center;padding:100px var(--pad) 40px;
   background:radial-gradient(circle at 85% 90%,rgba(139,92,246,.35),transparent 55%),radial-gradient(circle at 10% 10%,rgba(34,211,238,.18),transparent 50%),#07070c;
   clip-path:circle(0 at calc(100% - 38px) 38px);visibility:hidden;transition:clip-path .9s cubic-bezier(.7,0,.2,1),visibility 0s .9s;overflow:hidden}
@@ -189,13 +187,13 @@ body.menu-open .m-foot{opacity:1;transform:none;transition-delay:1s}
 .card h4 .ic{color:var(--b);font-size:1.3rem}
 .card p{color:var(--mute);margin-bottom:12px}.card p b{color:#fff;font-weight:500}
 
-/* cursor spotlight */
+/* spotlight */
 .spot{position:relative;overflow:hidden}
 .spot::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .3s;
   background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(139,92,246,.2),transparent 45%)}
 .spot:hover::before{opacity:1}
 .spot>*{position:relative;z-index:1}
-/* animated gradient border */
+/* gradient border */
 @property --ang{syntax:'<angle>';initial-value:0deg;inherits:false}
 .gb::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
   background:conic-gradient(from var(--ang),transparent 0 62%,var(--b),var(--a),var(--c),transparent);
@@ -261,7 +259,7 @@ body.menu-open .m-foot{opacity:1;transform:none;transition-delay:1s}
 .dots button{width:10px;height:10px;border-radius:10px;border:0;background:#2c2c40;cursor:pointer;transition:.4s}
 .dots button.on{width:32px;background:var(--grad)}
 
-/* TIMELINE (nodes centered exactly on the line) */
+/* TIMELINE */
 .timeline{position:relative;padding-left:62px;margin-bottom:60px;max-width:860px}
 .timeline::before{content:"";position:absolute;left:16px;top:20px;bottom:20px;width:2px;background:linear-gradient(var(--a),var(--b),transparent)}
 .t-item{position:relative;margin-bottom:30px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 26px;transition:border-color .3s,box-shadow .3s}
@@ -753,16 +751,16 @@ $(function () {
 
   $('#year').text(new Date().getFullYear());
 
-  /* logo -> loader + favicon */
+  /* logo loader aur favicon me lagao */
   var logoSrc = $('#logoImg').attr('src');
   $('#bootLogo').attr('src', logoSrc);
   $('head').append('<link rel="icon" href="' + logoSrc + '">');
 
-  /* ---------- Boot text ---------- */
+  /* loader text */
   var boot = ['initializing neural canvas...', 'loading design engine...', 'rendering interface...'];
   boot.forEach(function (t, i) { setTimeout(function () { $('#bootTxt').text(t); }, i * 650); });
 
-  /* ---------- Mobile / tablet menu ---------- */
+  /* mobile menu */
   function closeMenu() { $('body').removeClass('menu-open'); $('#burger').removeClass('open').attr('aria-expanded', 'false'); }
   $('#burger').on('click', function () {
     var open = !$('body').hasClass('menu-open');
@@ -773,7 +771,7 @@ $(function () {
   $(document).on('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   $(window).on('resize', function () { if (window.innerWidth > 960) closeMenu(); });
 
-  /* ---------- Scroll: nav, progress, spy, to-top ---------- */
+  /* scroll pe nav, progress bar, active link */
   var $sections = $('section[id]');
   function onScroll() {
     var y = $(window).scrollTop();
@@ -792,7 +790,7 @@ $(function () {
   $(window).on('scroll', onScroll); onScroll();
   $('#toTop').on('click', function () { $('html,body').animate({ scrollTop: 0 }, 600); });
 
-  /* ---------- Cursor glow + card spotlight ---------- */
+  /* cursor glow */
   $(document).on('mousemove', function (e) { $('#glow').css({ left: e.clientX, top: e.clientY }); });
   $(document).on('mousemove', '.spot', function (e) {
     var r = this.getBoundingClientRect();
@@ -800,7 +798,7 @@ $(function () {
     this.style.setProperty('--my', (e.clientY - r.top) + 'px');
   });
 
-  /* ---------- Typing headline ---------- */
+  /* typing text */
   var words = ['modern websites', 'responsive layouts', 'AI-inspired interfaces', 'pixel-perfect UI', 'WordPress & Webflow sites'];
   var w = 0, c = 0, del = false;
   (function type() {
@@ -812,7 +810,7 @@ $(function () {
     else { del = false; w = (w + 1) % words.length; setTimeout(type, 300); }
   })();
 
-  /* ---------- AI terminal card ---------- */
+  /* terminal card */
   var tLines = [
     { c: 'cm', t: '// design.ai v2.0' },
     { c: 'cmd', t: '> generate("portfolio")' },
@@ -833,7 +831,7 @@ $(function () {
   }
   runTerm(0);
 
-  /* ---------- AI equalizer + progress ---------- */
+  /* equalizer + progress */
   var eqHtml = '';
   for (var e = 0; e < 16; e++) eqHtml += '<i style="animation-delay:-' + (Math.random() * 1.1).toFixed(2) + 's;animation-duration:' + (0.8 + Math.random() * 0.8).toFixed(2) + 's"></i>';
   $('#eq').html(eqHtml);
@@ -845,7 +843,7 @@ $(function () {
     $('#ptxt').text(msgs[Math.min(Math.floor(pct / 26), 3)]);
   }, 90);
 
-  /* ---------- Skill icon marquee (icons only) ---------- */
+  /* skills marquee */
   var marks = [
     { n: 'HTML', t: '&lt;/&gt;', c: '#fb923c' },
     { n: 'CSS', t: '{ }', c: '#38bdf8' },
@@ -868,10 +866,10 @@ $(function () {
     mh += '<div class="mk" style="--c:' + m.c + '" title="' + m.n + '" aria-label="' + m.n + '">' +
       (m.i ? '<svg class="ic"><use href="#i-' + m.i + '"/></svg>' : '<b>' + m.t + '</b>') + '</div>';
   });
-  var grp = mh + mh + mh; // one group is wider than any screen, so the loop never shows an empty gap
+  var grp = mh + mh + mh; // teen baar repeat, taaki gap na dikhe
   $('#marquee').html(grp + grp);
 
-  /* ---------- Reveal + counters ---------- */
+  /* reveal + counter */
   function counter($el) {
     var target = parseFloat($el.data('count')), dec = $el.data('dec') || 0, start = null;
     function step(t) {
@@ -897,7 +895,7 @@ $(function () {
     if (en[0].isIntersecting && !counted) { counted = true; $('.stats b').each(function () { counter($(this)); }); }
   }, { threshold: .5 }).observe($('.stats')[0]);
 
-  /* ---------- Project slider ---------- */
+  /* slider */
   var $track = $('.slider-track'), $slides = $track.children('.slide'),
       $dots = $('#dots'), idx = 0, perView = 3, gap = 24, timer;
   function getPer() { var w = window.innerWidth; return w < 700 ? 1 : w < 1050 ? 2 : 3; }
@@ -929,11 +927,11 @@ $(function () {
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { go(dx < 0 ? idx + 1 : idx - 1); auto(); }
   });
   $(window).on('resize load', layout);
-  // re-fit cards whenever the slider's real width changes (scrollbar, fonts, zoom, devtools)
+  // slider ki width badle to cards dubara set
   if (window.ResizeObserver) new ResizeObserver(function () { layout(); }).observe($('.slider-viewport')[0]);
   layout(); auto();
 
-  /* ---------- Copy buttons + toast ---------- */
+  /* copy + toast */
   var toastT;
   function toast(msg) {
     $('#toastTxt').text(msg); $('#toast').addClass('show');
@@ -951,12 +949,12 @@ $(function () {
     }
   }
   $('.cp').on('click', function () { copyText($(this).data('copy'), $(this).data('msg')); });
-  // phone: call on touch devices, copy number on desktop (no calling app there)
+  // mobile pe call, desktop pe number copy
   $('#phoneLink').on('click', function (e) {
     if (!window.matchMedia('(pointer:coarse)').matches) { e.preventDefault(); copyText($(this).data('copy'), 'Number copied'); }
   });
 
-  /* ---------- Particle network background ---------- */
+  /* background particles */
   var cv = document.getElementById('bg'), ctx = cv.getContext('2d'), pts = [], mouse = { x: null, y: null };
   function size() { cv.width = innerWidth; cv.height = innerHeight; }
   size();
