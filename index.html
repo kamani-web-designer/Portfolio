@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamani Thakur | Web Designer</title>
+  <meta name="description" content="Portfolio of Kamani Thakur, Web Designer specializing in Elementor, WordPress, Webflow and UI/UX design.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: #f5f7fb;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    header {
+      padding: 22px 0;
+      border-bottom: 1px solid #243247;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #58c8ff;
+    }
+
+    nav a {
+      color: #e5edf7;
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #58c8ff;
+    }
+
+    .hero {
+      min-height: 570px;
+      display: flex;
+      align-items: center;
+      padding: 90px 0;
+    }
+
+    .tag {
+      color: #58c8ff;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.08;
+      margin: 22px 0;
+      max-width: 800px;
+    }
+
+    h1 span {
+      color: #58c8ff;
+    }
+
+    .hero p {
+      max-width: 600px;
+      color: #aab8ca;
+      font-size: 17px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .primary {
+      background: #58c8ff;
+      color: #07111f;
+    }
+
+    .secondary {
+      border: 1px solid #46576d;
+      color: white;
+    }
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-title {
+      font-size: 36px;
+      margin-bottom: 14px;
+    }
+
+    .muted {
+      color: #aab8ca;
+    }
+
+    .about-box {
+      background: #101e30;
+      border: 1px solid #26384f;
+      padding: 30px;
+      border-radius: 12px;
+      margin-top: 28px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .skills span {
+      padding: 10px 16px;
+      background: #13263b;
+      border: 1px solid #2b4660;
+      border-radius: 6px;
+      color: #c6eaff;
+      font-size: 14px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .project {
+      padding: 28px;
+      background: #101e30;
+      border: 1px solid #26384f;
+      border-radius: 12px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      border-color: #58c8ff;
+    }
+
+    .project h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .project p {
+      color: #aab8ca;
+      font-size: 14px;
+    }
+
+    .project-label {
+      display: inline-block;
+      color: #58c8ff;
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .contact-box {
+      background: #101e30;
+      border: 1px solid #26384f;
+      padding: 35px;
+      border-radius: 12px;
+      margin-top: 25px;
+    }
+
+    footer {
+      padding: 25px 0;
+      text-align: center;
+      color: #aab8ca;
+      border-top: 1px solid #243247;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin: 0 12px 0 0;
+        display: inline-block;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 0;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .section-title {
+        font-size: 29px;
+      }
+
+      .about-box,
+      .project,
+      .contact-box {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Kamani.</div>
+        <div>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="tag">WEB DESIGNER & FRONTEND DESIGNER</div>
+        <h1>Designing Websites That <span>Stand Out.</span></h1>
+        <p>
+          Hi, I'm Kamani Thakur. I create modern, responsive and
+          user-friendly websites with a focus on clean design,
+          great user experience and performance.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#projects">Explore My Work ↗</a>
+          <a class="btn secondary" href="#contact">Let's Connect</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="tag">A LITTLE ABOUT ME</div>
+        <h2 class="section-title">Turning Ideas Into Websites.</h2>
+        <div class="about-box">
+          <p class="muted">
+            I'm a web designer passionate about creating visually
+            appealing, responsive and easy-to-use websites. I enjoy
+            transforming ideas into polished digital experiences
+            using modern design tools and website builders.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="tag">WHAT I WORK WITH</div>
+        <h2 class="section-title">My Skills</h2>
+        <p class="muted">Tools and technologies I use to build websites.</p>
+        <div class="skills">
+          <span>Elementor</span>
+          <span>WordPress</span>
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript</span>
+          <span>Webflow</span>
+          <span>Figma</span>
+          <span>Responsive Design</span>
+          <span>UI/UX Design</span>
+          <span>WPBakery</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="tag">SELECTED WORK</div>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="muted">A selection of website design and development work.</p>
+
+        <div class="projects">
+          <article class="project">
+            <span class="project-label">WORDPRESS · ELEMENTOR</span>
+            <h3>Business Website</h3>
+            <p>A modern business website focused on clean layouts,
+            responsive design and clear calls to action.</p>
+          </article>
+
+          <article class="project">
+            <span class="project-label">UI/UX · FIGMA</span>
+            <h3>Website UI Design</h3>
+            <p>A user-focused interface concept with consistent
+            typography, spacing and visual hierarchy.</p>
+          </article>
+
+          <article class="project">
+            <span class="project-label">WORDPRESS · WOOCOMMERCE</span>
+            <h3>E-commerce Website</h3>
+            <p>An online shopping experience designed for easy
+            navigation and a smooth customer journey.</p>
+          </article>
+
+          <article class="project">
+            <span class="project-label">WEBFLOW · RESPONSIVE</span>
+            <h3>Landing Page</h3>
+            <p>A responsive landing page with engaging content,
+            clear messaging and conversion-focused sections.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="tag">HAVE A PROJECT IN MIND?</div>
+        <h2 class="section-title">Let's Create Something Great.</h2>
+        <div class="contact-box">
+          <p class="muted">
+            Have a website project or collaboration idea?
+            I'd love to hear from you.
+          </p>
+          <div class="buttons">
+            <!-- Replace this with your real email address -->
+            <a class="btn primary"
+               href="mailto:your-email@example.com">Email Me ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Kamani Thakur · Web Designer
+    </div>
+  </footer>
+</body>
+</html>
