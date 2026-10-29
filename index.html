@@ -77,6 +77,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .burger.open span:nth-child(1){top:11px;transform:rotate(45deg)}
 .burger.open span:nth-child(2){opacity:0}
 .burger.open span:nth-child(3){top:11px;transform:rotate(-45deg)}
+/* hamburger icon static rahe, koi loop ya move nahi */
+.burger,.burger span,.burger::before,.burger::after{animation:none!important;transition:none!important}
 body.menu-open .nav{background:transparent;backdrop-filter:none;border-color:transparent}
 
 /* MOBILE MENU */
