@@ -430,6 +430,25 @@ body.menu-open{overflow:hidden}
 .thumb span{color:rgba(255,255,255,.78)}
 .thumb.on{opacity:1;background:rgba(255,255,255,.26);border-color:#fff;box-shadow:0 14px 30px -18px rgba(30,10,100,.8)}
 .thumb i{background:#fff}
+
+/* mobile only: cleaner hero photo */
+@media (max-width:680px){
+  .hp{max-width:360px;margin-inline:auto}
+  .hp::after{display:none}
+  .hp::before{inset:5% -3% -2% 7%;border-radius:44px}
+  .arch{border-width:5px}
+  .c1{display:none}
+  .c2{right:8px;bottom:8%;padding:7px 12px 7px 7px;font-size:.72rem;border-radius:14px;animation:none}
+  .c2 small{display:none}
+  .chip .ci{width:28px;height:28px;border-radius:9px;font-size:.7rem}
+  .spin{width:84px;height:84px;left:-8px;bottom:-16px}
+  .spin b{font-size:1.1rem}
+  .spin svg text{font-size:10px}
+}
+
+/* chip text: desktop keeps PSD text, mobile shows its own */
+.chip .mob{display:none}
+@media (max-width:680px){.chip .dsk{display:none}.chip .ci.mob{display:grid}.chip span.mob{display:block}}
 </style>
 </head>
 <body>
@@ -478,7 +497,7 @@ body.menu-open{overflow:hidden}
     <div class="hp rv" style="--d:250">
       <div class="arch"><img data-img="photo" alt="Kamani Thakur working at her desk" width="900" height="1200"></div>
       <div class="chip c1"><span class="ci"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="7" height="6" rx="3" fill="#f24e1e"/><rect x="12" y="2" width="7" height="6" rx="3" fill="#ff7262"/><rect x="5" y="8" width="7" height="6" rx="3" fill="#a259ff"/><circle cx="15.5" cy="11" r="3.5" fill="#1abcfe"/><rect x="5" y="14" width="7" height="6" rx="3" fill="#0acf83"/></svg></span><span>Figma → WordPress<small>or clean HTML</small></span></div>
-      <div class="chip c2"><span class="ci" style="color:#31a8ff">Ps</span><span>PSD → WordPress<small>or clean HTML</small></span></div>
+      <div class="chip c2"><span class="ci dsk" style="color:#31a8ff">Ps</span><span class="dsk">PSD → WordPress<small>or clean HTML</small></span><span class="ci mob" style="color:#16a34a">✓</span><span class="mob">Open for new projects</span></div>
       <div class="spin"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><path id="cp" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs><text font-size="9"><textPath href="#cp" textLength="236" lengthAdjust="spacing">WEB DESIGNER • WORDPRESS • FIGMA • </textPath></text></svg><b>✦</b></div>
     </div>
   </div>
